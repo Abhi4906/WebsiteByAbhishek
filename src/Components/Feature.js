@@ -31,8 +31,8 @@ function Feature() {
               <Container>
                 <Row className="justify-content-center mb-4">
                   <Col lg={8} className="text-center">
-                  <Badge bg="light" text="primary" className="mb-3 px-3 py-2 section-badge">OUR Partners</Badge>
-                    <h2 className="display-5 fw-bold mb-3">Our Valued Partners</h2>
+                  {/* <Badge bg="light" text="primary" className="mb-3 px-3 py-2 section-badge">OUR Partners</Badge> */}
+                    <h2 className="display-5 fw-bold mb-3">Our Valued Client </h2>
                     <p className="lead text-muted">We're proud to collaborate with industry leaders</p>
                   </Col>
                 </Row>

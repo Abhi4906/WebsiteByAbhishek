@@ -9,7 +9,7 @@ function Contact() {
               <Row className="justify-content-center">
                 <Col lg={8}>
                   <div className="text-center mb-5">
-                    <Badge bg="primary" pill className="mb-3 px-3 py-2 section-badge">GET IN TOUCH</Badge>
+                    {/* <Badge bg="primary" pill className="mb-3 px-3 py-2 section-badge">GET IN TOUCH</Badge> */}
                     <h2 className="display-4 fw-bold mb-3">Contact Us</h2>
                     <p className="lead text-muted">
                       Have questions or want to discuss a project? We'd love to hear from you.

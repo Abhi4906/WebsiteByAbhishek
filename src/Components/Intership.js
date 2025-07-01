@@ -27,10 +27,7 @@ const categories = [
 
 function Intership() {
   return (
-    <section className="py-5 text-center bg-white">
-      {/* <div className="mb-3">
-        <span className="badge bg-light text-primary fw-semibold fs-6 px-3 py-2">CATEGORIES</span>
-      </div> */}
+    <section className="py-5 text-center bg-white" style={{ marginBottom: '100px' }}>
       <h2 className="fw-bold mb-2">Explore Top Courses Caterories</h2>
       <h3 className="fw-bold mb-5">That Change Yourself</h3>
 
@@ -38,7 +35,21 @@ function Intership() {
         <Row className="g-4">
           {categories.map((cat, index) => (
             <Col key={index} xs={12} sm={6} md={3}>
-              <Card className="shadow-sm border-0 p-4 h-100 text-center">
+              <Card
+                className="border-0 text-center p-4 h-100"
+                style={{
+                  transition: 'all 0.3s ease',
+                  cursor: 'pointer',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                  e.currentTarget.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
                 <Card.Img
                   variant="top"
                   src={cat.image}
@@ -51,7 +62,6 @@ function Intership() {
                 />
                 <Card.Body>
                   <Card.Title className="fw-bold">{cat.title}</Card.Title>
-                  {/* <p className="text-muted mb-0">{cat.courses} Course{cat.courses > 1 ? 's' : ''} →</p> */}
                 </Card.Body>
               </Card>
             </Col>
@@ -59,11 +69,9 @@ function Intership() {
         </Row>
       </Container>
 
-<Review/>
-
+      <Review />
     </section>
   );
 }
 
 export default Intership;
-

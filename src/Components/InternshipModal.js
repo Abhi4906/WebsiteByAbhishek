@@ -1,6 +1,5 @@
-// src/Components/InternshipModal.js
 import React, { useState } from 'react';
-import { Modal, Button, Form, Row, Col, Image } from 'react-bootstrap';
+import { Modal, Button, Form, Row, Col, Image, Alert } from 'react-bootstrap';
 
 function InternshipModal({ show, handleClose }) {
   const [formData, setFormData] = useState({
@@ -8,6 +7,8 @@ function InternshipModal({ show, handleClose }) {
     mobile: '',
     internshipType: '',
   });
+
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,9 +20,24 @@ function InternshipModal({ show, handleClose }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Submitted Data:', formData);
-    alert('Application submitted!');
-    handleClose();
+
+    // Optionally send formData to server here...
+
+    // Show success message
+    setSubmissionSuccess(true);
+
+    // Reset form
+    setFormData({
+      name: '',
+      mobile: '',
+      internshipType: '',
+    });
+
+    // Close modal after short delay
+    setTimeout(() => {
+      setSubmissionSuccess(false);
+      handleClose();
+    }, 4000); // 2 seconds delay
   };
 
   return (
@@ -43,6 +59,13 @@ function InternshipModal({ show, handleClose }) {
           <Col md={7}>
             <div className="p-4">
               <h4 className="mb-4 text-primary">Apply for Internship</h4>
+
+              {submissionSuccess && (
+                <Alert variant="success">
+                  ✅ Your interest has been submitted successfully! our team will contact you soon 
+                </Alert>
+              )}
+
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                   <Form.Label>Your Name</Form.Label>
@@ -69,14 +92,14 @@ function InternshipModal({ show, handleClose }) {
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                  <Form.Label>Internship Type</Form.Label>
+                  <Form.Label>Internship</Form.Label>
                   <Form.Select
                     name="internshipType"
                     value={formData.internshipType}
                     onChange={handleChange}
                     required
                   >
-                    <option value="">Select internship type</option>
+                    <option value="">Choose Technology</option>
                     <option>Web Front-End Development</option>
                     <option>Back-End Developer</option>
                     <option>Full-Stack Developer</option>
