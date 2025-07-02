@@ -62,7 +62,7 @@ function InternshipModal({ show, handleClose }) {
 
               {submissionSuccess && (
                 <Alert variant="success">
-                  ✅ Your interest has been submitted successfully! our team will contact you soon 
+                  ✅ Your interest has been submitted successfully! Our team will contact you soon 
                 </Alert>
               )}
 
@@ -99,11 +99,13 @@ function InternshipModal({ show, handleClose }) {
                     onChange={handleChange}
                     required
                   >
-                    <option value="">Choose Technology</option>
-                    <option>Web Front-End Development</option>
-                    <option>Back-End Developer</option>
-                    <option>Full-Stack Developer</option>
-                    <option>Cloud Computing</option>
+                    <option value="">Intrested In </option>
+                    <option>Front-End Development</option>
+                    <option>Back-End Development</option>
+                    <option>Full-Stack Development</option>
+                      <option>DevOps</option>
+                    <option>Cloud Computing ( AWS / Azure )</option>
+                       <option>AI/ML</option>
                     <option>Other</option>
                   </Form.Select>
                 </Form.Group>
