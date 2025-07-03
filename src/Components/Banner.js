@@ -30,9 +30,15 @@ function Banner() {
               {/* <Badge bg="warning" pill className="mb-3 px-3 py-2 text-dark">Expert Team</Badge> */}
               <h1 className="display-4 fw-bold mb-4">Custom Software Solutions & Digital Marketing Experts</h1>
               <p className="lead mb-4">We specialize in web development, mobile apps, cloud services, UI/UX design, and performance marketing to boost your digital presence.</p>
-              <Button onClick={() => setActivePage('contact')} variant="light" size="lg" className="px-4 rounded-pill text-primary cta-button">
-                Contact Us <ArrowRightCircle className="ms-1" />
-              </Button>
+              <a href="/contact">
+                <Button
+                  variant="light"
+                  size="lg"
+                  className="px-4 rounded-pill text-primary cta-button"
+                >
+                  Contact Us <ArrowRightCircle className="ms-1" />
+                </Button>
+              </a>
             </Carousel.Caption>
           </Carousel.Item>
           <Carousel.Item>
@@ -51,9 +57,15 @@ function Banner() {
               <p className="lead mb-4">We specialize in web development, mobile apps, cloud services, UI/UX design, and performance marketing to boost your digital presence.
 
               </p>
-              <Button onClick={() => setActivePage('contact')} variant="light" size="lg" className="px-4 rounded-pill text-primary cta-button">
-                Contact Us <ArrowRightCircle className="ms-1" />
-              </Button>
+              <a href="/contact">
+                <Button
+                  variant="light"
+                  size="lg"
+                  className="px-4 rounded-pill text-primary cta-button"
+                >
+                  Contact Us <ArrowRightCircle className="ms-1" />
+                </Button>
+              </a>
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>

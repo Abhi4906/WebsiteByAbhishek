@@ -16,8 +16,10 @@ import Intership from './Components/Intership';
 import TeamPage from './TeamPage';
 import InternshipModal from './Components/InternshipModal';
 import ClientFeedback from './Components/ClientFeedback';
+import Blog from './Components/Blog';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Blogs from './Components/Blogs';
 
 function HomePage() {
   return (
@@ -25,7 +27,7 @@ function HomePage() {
       <Banner />
       {/* <Feature /> */}
       <Services />
-       <ClientFeedback/>
+      <ClientFeedback />
     </>
   );
 }
@@ -56,6 +58,7 @@ function App() {
                 <Nav.Link as={Link} to="/" className="mx-2 nav-link-custom">Home</Nav.Link>
                 <Nav.Link as={Link} to="/about" className="mx-2 nav-link-custom">About</Nav.Link>
                 <Nav.Link as={Link} to="/intership" className="mx-2 nav-link-custom">Internship</Nav.Link>
+                {/* <Nav.Link as={Link} to="/blogs" className="mx-2 nav-link-custom">Blogs</Nav.Link> */}
                 <Nav.Link as={Link} to="/contact" className="mx-2 nav-link-custom">
                   Contact Us <ArrowRightCircle className="ms-1" />
                 </Nav.Link>
@@ -71,18 +74,20 @@ function App() {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/intership" element={<Intership />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog" element={<Blog />} />
         </Routes>
 
 
-       
+
         <Freeconsultation />
         <Footer />
       </BrowserRouter>
 
       {/* Show Internship Modal after 3s */}
-      <InternshipModal 
-        show={showInternshipModal} 
-        handleClose={() => setShowInternshipModal(false)} 
+      <InternshipModal
+        show={showInternshipModal}
+        handleClose={() => setShowInternshipModal(false)}
       />
     </div>
   );

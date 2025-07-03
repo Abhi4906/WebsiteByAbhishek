@@ -1,5 +1,6 @@
-import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import InternshipModal from './InternshipModal';
 import Review from './Review';
 
 const categories = [
@@ -9,12 +10,12 @@ const categories = [
     image: 'https://histudy-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcategory%2Fweb-design.png&w=256&q=75',
   },
   {
-    title: 'Back-End Developer',
+    title: 'Back-End Development',
     courses: 2,
     image: 'https://histudy-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcategory%2Fdesign.png&w=256&q=75',
   },
   {
-    title: 'Full-Stack Developer',
+    title: 'Full-Stack Development',
     courses: 1,
     image: 'https://histudy-nextjs.vercel.app/_next/image?url=%2Fimages%2Fcategory%2Fpersonal.png&w=256&q=75',
   },
@@ -26,12 +27,21 @@ const categories = [
 ];
 
 function Intership() {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
+
   return (
     <section className="py-5 text-center bg-white" style={{ marginBottom: '100px' }}>
-      <h2 className="fw-bold mb-2">Explore Top Courses Caterories</h2>
-      <h3 className="fw-bold mb-5">That Change Yourself</h3>
+      <h2 className="fw-bold mb-2">Explore Top Courses Categories</h2>
+      <h3 className="fw-bold mb-4">That Change Yourself</h3>
 
-      <Container>
+      <Button variant="primary" onClick={handleShow}>
+        Apply Now
+      </Button>
+
+      <Container className="mt-5">
         <Row className="g-4">
           {categories.map((cat, index) => (
             <Col key={index} xs={12} sm={6} md={3}>
@@ -70,6 +80,9 @@ function Intership() {
       </Container>
 
       <Review />
+
+      {/* Internship Modal */}
+      <InternshipModal show={showModal} handleClose={handleClose} />
     </section>
   );
 }
