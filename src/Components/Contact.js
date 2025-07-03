@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Badge, Button, Card, Col, Container, Row } from 'react-bootstrap';
+import Swal from 'sweetalert2';
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -19,42 +20,26 @@ function Contact() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Validate email format and allowed domains
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const allowedDomains = [
-      'gmail.com',
-      'yahoo.com',
-      'outlook.com',
-      'icloud.com',
-      'protonmail.com',
-      'shiwansh.com',
-      'shiwanshsolutions.com'
+      'gmail.com', 'yahoo.com', 'outlook.com',
+      'icloud.com', 'protonmail.com', 'shiwansh.com', 'shiwanshsolutions.com'
     ];
-    
+
     if (!emailRegex.test(email)) return false;
-    
     const domain = email.split('@')[1].toLowerCase();
     return allowedDomains.includes(domain);
   };
 
-  // Validate mobile number (exactly 10 digits)
   const validateMobile = (mobile) => {
     return /^\d{10}$/.test(mobile);
   };
 
-  // Validate the entire form
   const validateForm = () => {
-    const newErrors = {
-      name: '',
-      email: '',
-      mobile: '',
-      message: ''
-    };
-
+    const newErrors = { name: '', email: '', mobile: '', message: '' };
     let isValid = true;
 
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
       isValid = false;
@@ -63,22 +48,19 @@ function Contact() {
       isValid = false;
     }
 
-    // Email validation
     if (!formData.email) {
       newErrors.email = 'Email is required';
       isValid = false;
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please use a valid email (e.g., @gmail.com, @yahoo.com)';
+      newErrors.email = 'Please use a valid email (e.g., @gmail.com)';
       isValid = false;
     }
 
-    // Mobile validation (optional but must be valid if provided)
     if (formData.mobile && !validateMobile(formData.mobile)) {
       newErrors.mobile = 'Please enter a valid 10-digit number';
       isValid = false;
     }
 
-    // Message validation
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
       isValid = false;
@@ -93,8 +75,7 @@ function Contact() {
 
   const handleChange = (e) => {
     const { id, value } = e.target;
-    
-    // Special handling for mobile number to prevent non-digit input
+
     if (id === 'mobile') {
       const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
       setFormData(prev => ({ ...prev, [id]: digitsOnly }));
@@ -102,7 +83,6 @@ function Contact() {
       setFormData(prev => ({ ...prev, [id]: value }));
     }
 
-    // Clear error when user starts typing
     if (errors[id]) {
       setErrors(prev => ({ ...prev, [id]: '' }));
     }
@@ -110,19 +90,15 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
+
+    if (!validateForm()) return;
 
     setIsSubmitting(true);
 
     try {
       const response = await fetch('http://localhost:4000/api/contacts', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
@@ -131,8 +107,7 @@ function Contact() {
       }
 
       const result = await response.json();
-      
-      // Reset form on success
+
       setFormData({
         name: '',
         email: '',
@@ -141,10 +116,18 @@ function Contact() {
         message: ''
       });
 
-      alert(result.message || 'Thank you for your message! We will get back to you soon.');
-      
+      Swal.fire({
+        icon: 'success',
+        title: 'Message Sent!',
+        text: result.message || 'Thank you for your message! We will get back to you soon.',
+      });
+
     } catch (error) {
-      alert(error.message || 'An error occurred while sending your message. Please try again.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: error.message || 'An error occurred while sending your message. Please try again.',
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -164,20 +147,19 @@ function Contact() {
               </div>
             </Col>
           </Row>
-  
+
           <Row className="g-4">
             <Col lg={6}>
               <Card className="border-0 shadow-sm h-100 contact-form-card">
                 <Card.Body className="p-5">
                   <h3 className="h4 mb-4">Send us a message</h3>
                   <form onSubmit={handleSubmit} noValidate>
-                    {/* Name Field */}
                     <div className="mb-3">
                       <label htmlFor="name" className="form-label">Your Name *</label>
-                      <input 
-                        type="text" 
+                      <input
+                        type="text"
                         className={`form-control ${errors.name ? 'is-invalid' : ''}`}
-                        id="name" 
+                        id="name"
                         placeholder="Enter your full name"
                         value={formData.name}
                         onChange={handleChange}
@@ -185,13 +167,12 @@ function Contact() {
                       {errors.name && <div className="invalid-feedback">{errors.name}</div>}
                     </div>
 
-                    {/* Email Field */}
                     <div className="mb-3">
                       <label htmlFor="email" className="form-label">Email Address *</label>
-                      <input 
-                        type="email" 
+                      <input
+                        type="email"
                         className={`form-control ${errors.email ? 'is-invalid' : ''}`}
-                        id="email" 
+                        id="email"
                         placeholder="example@gmail.com"
                         value={formData.email}
                         onChange={handleChange}
@@ -200,13 +181,12 @@ function Contact() {
                       <small className="text-muted">We accept Gmail, Yahoo, Outlook, etc.</small>
                     </div>
 
-                    {/* Mobile Field */}
                     <div className="mb-3">
                       <label htmlFor="mobile" className="form-label">Mobile Number</label>
-                      <input 
-                        type="tel" 
+                      <input
+                        type="tel"
                         className={`form-control ${errors.mobile ? 'is-invalid' : ''}`}
-                        id="mobile" 
+                        id="mobile"
                         placeholder="9876543210"
                         value={formData.mobile}
                         onChange={handleChange}
@@ -216,26 +196,24 @@ function Contact() {
                       <small className="text-muted">Optional - 10 digits only</small>
                     </div>
 
-                    {/* Subject Field */}
                     <div className="mb-3">
                       <label htmlFor="subject" className="form-label">Subject</label>
-                      <input 
-                        type="text" 
-                        className="form-control" 
-                        id="subject" 
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="subject"
                         placeholder="What's this about?"
                         value={formData.subject}
                         onChange={handleChange}
                       />
                     </div>
 
-                    {/* Message Field */}
                     <div className="mb-4">
                       <label htmlFor="message" className="form-label">Message *</label>
-                      <textarea 
+                      <textarea
                         className={`form-control ${errors.message ? 'is-invalid' : ''}`}
-                        id="message" 
-                        rows={5} 
+                        id="message"
+                        rows={5}
                         placeholder="Tell us about your project or inquiry (minimum 10 characters)"
                         value={formData.message}
                         onChange={handleChange}
@@ -243,9 +221,9 @@ function Contact() {
                       {errors.message && <div className="invalid-feedback">{errors.message}</div>}
                     </div>
 
-                    <Button 
-                      variant="primary" 
-                      size="lg" 
+                    <Button
+                      variant="primary"
+                      size="lg"
                       type="submit"
                       className="w-100 rounded-pill py-3 fw-bold submit-button"
                       disabled={isSubmitting}
@@ -256,17 +234,15 @@ function Contact() {
                 </Card.Body>
               </Card>
             </Col>
-  
-            {/* Contact Information Card (unchanged) */}
+
             <Col lg={6}>
               <Card className="border-0 bg-light h-100 contact-info-card">
                 <Card.Body className="p-5">
                   <h3 className="h4 mb-4">Contact Information</h3>
                   <p className="mb-5">
-                    Fill out the form or reach out to us directly through the contact 
-                    details below.
+                    Fill out the form or reach out to us directly through the contact details below.
                   </p>
-  
+
                   <div className="d-flex mb-4 contact-info-item">
                     <div className="me-4">
                       <div className="bg-primary bg-opacity-10 p-3 rounded-circle contact-icon">
@@ -281,7 +257,7 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-  
+
                   <div className="d-flex mb-4 contact-info-item">
                     <div className="me-4">
                       <div className="bg-primary bg-opacity-10 p-3 rounded-circle contact-icon">
@@ -297,7 +273,7 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-  
+
                   <div className="d-flex contact-info-item">
                     <div className="me-4">
                       <div className="bg-primary bg-opacity-10 p-3 rounded-circle contact-icon">
@@ -312,9 +288,9 @@ function Contact() {
                       </p>
                     </div>
                   </div>
-  
+
                   <hr className="my-5" />
-  
+
                   <div>
                     <h4 className="h6 mb-3">Follow Us</h4>
                     <div className="d-flex gap-3 social-icons">
