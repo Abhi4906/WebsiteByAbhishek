@@ -69,7 +69,7 @@ function InternshipModal({ show, handleClose }) {
     };
 
     try {
-      const response = await fetch('http://localhost:4000/api/interns', {
+      const response = await fetch('/api/interns', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

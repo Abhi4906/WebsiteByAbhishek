@@ -96,7 +96,7 @@ function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('http://localhost:4000/api/contacts', {
+      const response = await fetch('/api/contacts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
