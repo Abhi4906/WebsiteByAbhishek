@@ -49,8 +49,8 @@ function Footer() {
               <ul className="list-unstyled footer-links">
                 <li className="mb-2"><a href="/about" onClick={() => setActivePage('about')} className="text-muted text-decoration-none footer-link">About Us</a></li>
                 {/* <li className="mb-2"><a href="#" onClick={() => setActivePage('team')} className="text-muted text-decoration-none footer-link">Our Team</a></li> */}
-                <li className="mb-2"><a href="#" className="text-muted text-decoration-none footer-link">Careers</a></li>
-                <li className="mb-2"><a href="/blogs" className="text-muted text-decoration-none footer-link">Blog</a></li>
+                <li className="mb-2"><a href="/career" className="text-muted text-decoration-none footer-link">Careers</a></li>
+                {/* <li className="mb-2"><a href="/blogs" className="text-muted text-decoration-none footer-link">Blog</a></li> */}
                 <li><a href="/Intership" className="text-muted text-decoration-none footer-link">Intership</a></li>
               </ul>
             </Col>
@@ -64,7 +64,7 @@ function Footer() {
                 </li>
                 <li className="mb-3 d-flex">
                   <i className="bi bi-telephone-fill me-3 text-primary footer-contact-icon"></i>
-                  <span>+91 6280391882</span>
+                  <span>+91 9534098040</span>
                 </li>
                 <li className="d-flex">
                   <i className="bi bi-envelope-fill me-3 text-primary footer-contact-icon"></i>
@@ -84,7 +84,7 @@ function Footer() {
                 &copy; {new Date().getFullYear()} Shiwansh Solutions. All rights reserved.<br/>@Developed By: Abhishek Yadav.
               </p>
             </Col>
-            <Col md={6} className="text-center text-md-end">
+            {/* <Col md={6} className="text-center text-md-end">
               <ul className="list-inline small mb-0 footer-legal-links">
                 <li className="list-inline-item"><a href="#privacy" className="text-muted text-decoration-none footer-link">Privacy Policy</a></li>
                 <li className="list-inline-item mx-2">·</li>
@@ -92,7 +92,7 @@ function Footer() {
                 <li className="list-inline-item mx-2">·</li>
                 <li className="list-inline-item"><a href="#sitemap" className="text-muted text-decoration-none footer-link">Sitemap</a></li>
               </ul>
-            </Col>
+            </Col> */}
           </Row>
         </Container>
       </footer>

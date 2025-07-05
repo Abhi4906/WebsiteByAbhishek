@@ -267,7 +267,7 @@ function Contact() {
                     <div>
                       <h4 className="h6 mb-1">Phone</h4>
                       <p className="text-muted mb-0">
-                        +91 62803 91882 (Office)<br />
+                        +91 9534098040 (Office)<br />
                         +91 82830 58260 (Mobile)<br />
                         (Mon-Fri, 9am-6pm)
                       </p>
@@ -283,8 +283,7 @@ function Contact() {
                     <div>
                       <h4 className="h6 mb-1">Email</h4>
                       <p className="text-muted mb-0">
-                        contactravi@shiwansh.com<br />
-                        support@shiwanshsolutions.com
+                        ravi@shiwansh.com
                       </p>
                     </div>
                   </div>
