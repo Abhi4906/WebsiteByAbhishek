@@ -18,12 +18,13 @@ import InternshipModal from './Components/InternshipModal';
 import ClientFeedback from './Components/ClientFeedback';
 import Blog from './Components/Blog';
 import ReactGA from "react-ga4";
-import AnalyticsTracker from "./AnalyticsTracker";
+
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Blogs from './Components/Blogs';
 import Career from './Components/Career';
+import AnalyticsTracker from './Components/AnalyticsTracker';
 
 function HomePage() {
 
@@ -91,7 +92,8 @@ function App() {
           <Route path="/intership" element={<Intership />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blog" element={<Blog />} />
-            <Route path="/career" element={<Career />} />
+          <Route path="/career" element={<Career />} />
+          <Route path="/analyticstracker" element={<AnalyticsTracker />} />
         </Routes>
 
         <Freeconsultation />
