@@ -150,7 +150,7 @@ function InternshipModal({ show, handleClose }) {
                     onChange={handleChange}
                     isInvalid={!!errors.internshipType}
                   >
-                    <option value="">Select internship type</option>
+                    <option value=""disabled hidden >Select internship type</option>
                     <option>Front-End Development</option>
                     <option>Back-End Development</option>
                     <option>Full-Stack Development</option>
