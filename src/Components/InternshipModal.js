@@ -3,7 +3,7 @@ import { Modal, Button, Form, Row, Col, Image, Alert } from 'react-bootstrap';
 
 function InternshipModal({ show, handleClose }) {
   const [formData, setFormData] = useState({
-    name: '',
+    Name: '',
     mobile: '',
     internshipType: '',
   });
@@ -22,18 +22,18 @@ function InternshipModal({ show, handleClose }) {
   const validateForm = () => {
     const newErrors = {};
     const nameRegex = /^[a-zA-Z\s]{2,50}$/;
-    const mobileRegex = /^[6-9]\d{9}$/; // Starts with 6,7,8,9 and 10 digits total
+    const mobileRegex = /^\d{10}$/; // Exactly 10 digits
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    } else if (!nameRegex.test(formData.name)) {
-      newErrors.name = 'Name should only contain letters and spaces (2-50 chars)';
+    if (!formData.Name.trim()) {
+      newErrors.Name = 'Name is required';
+    } else if (!nameRegex.test(formData.Name)) {
+      newErrors.Name = 'Name should only contain letters and spaces (2-50 chars)';
     }
 
     if (!formData.mobile.trim()) {
       newErrors.mobile = 'Mobile number is required';
     } else if (!mobileRegex.test(formData.mobile)) {
-      newErrors.mobile = 'Mobile must be 10 digits and start with 6, 7, 8, or 9';
+      newErrors.mobile = 'Mobile must be exactly 10 digits';
     }
 
     if (!formData.internshipType) {
@@ -44,29 +44,10 @@ function InternshipModal({ show, handleClose }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const mapInternshipToId = (type) => {
-    switch (type) {
-      case 'Front-End Development': return 1;
-      case 'Back-End Development': return 2;
-      case 'Full-Stack Development': return 3;
-      case 'DevOps': return 4;
-      case 'Cloud Computing ( AWS / Azure )': return 5;
-      case 'AI/ML': return 6;
-      case 'Other': return 7;
-      default: return 0;
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) return;
-
-    const payload = {
-      Name: formData.name,
-      mobile: formData.mobile,
-      internshipId: mapInternshipToId(formData.internshipType),
-    };
 
     try {
       const response = await fetch('/api/interns', {
@@ -74,13 +55,13 @@ function InternshipModal({ show, handleClose }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setSubmissionSuccess(true);
         setFormData({
-          name: '',
+          Name: '',
           mobile: '',
           internshipType: '',
         });
@@ -132,14 +113,14 @@ function InternshipModal({ show, handleClose }) {
                   <Form.Label>Your Name</Form.Label>
                   <Form.Control
                     type="text"
-                    name="name"
+                    name="Name"
                     placeholder="Enter your name"
-                    value={formData.name}
+                    value={formData.Name}
                     onChange={handleChange}
-                    isInvalid={!!errors.name}
+                    isInvalid={!!errors.Name}
                   />
                   <Form.Control.Feedback type="invalid">
-                    {errors.name}
+                    {errors.Name}
                   </Form.Control.Feedback>
                 </Form.Group>
 
@@ -156,17 +137,20 @@ function InternshipModal({ show, handleClose }) {
                   <Form.Control.Feedback type="invalid">
                     {errors.mobile}
                   </Form.Control.Feedback>
+                  <Form.Text className="text-muted">
+                    Must be a 10-digit number
+                  </Form.Text>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                  <Form.Label>Internship</Form.Label>
+                  <Form.Label>Internship Type</Form.Label>
                   <Form.Select
                     name="internshipType"
                     value={formData.internshipType}
                     onChange={handleChange}
                     isInvalid={!!errors.internshipType}
                   >
-                    <option value="">Interested In</option>
+                    <option value="">Select internship type</option>
                     <option>Front-End Development</option>
                     <option>Back-End Development</option>
                     <option>Full-Stack Development</option>
