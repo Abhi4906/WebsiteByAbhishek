@@ -17,12 +17,25 @@ import TeamPage from './TeamPage';
 import InternshipModal from './Components/InternshipModal';
 import ClientFeedback from './Components/ClientFeedback';
 import Blog from './Components/Blog';
+import ReactGA from "react-ga4";
+import AnalyticsTracker from "./AnalyticsTracker";
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Blogs from './Components/Blogs';
 import Career from './Components/Career';
 
 function HomePage() {
+
+
+useEffect(() => {
+  ReactGA.initialize("G-JKGYZ5D5M2"); // Your Measurement ID
+}, []);
+
+
+
+
+
   return (
     <>
       <Banner />
@@ -47,6 +60,7 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
+       <AnalyticsTracker />
         <Navbar bg="white" expand="lg" sticky="top" className="shadow-sm py-3 navbar-custom">
           <Container>
             <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
@@ -79,8 +93,6 @@ function App() {
           <Route path="/blog" element={<Blog />} />
             <Route path="/career" element={<Career />} />
         </Routes>
-
-
 
         <Freeconsultation />
         <Footer />
