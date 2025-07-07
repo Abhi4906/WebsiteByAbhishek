@@ -9,7 +9,7 @@ const jobs = [
     title: 'Full Stack Intern',
     location: 'Remote / Chandigarh',
     type: 'Internship',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: 'Fresher can apply',
     education: 'BCA / B.Tech / MCA students or recent graduates preferred',
     description:
@@ -26,7 +26,7 @@ const jobs = [
     title: 'Software Developer',
     location: 'Remote',
     type: 'Full-time',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: '4+ years required',
     education: 'B.Tech / MCA / M.Tech in Computer Science or related field',
     description:
@@ -50,7 +50,7 @@ const jobs = [
     title: 'Sales Executive',
     location: 'Remote / Chandigarh',
     type: 'Full-time',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: '6+ months preferred',
     education: 'Any graduate / MBA preferred',
     description:
@@ -67,7 +67,7 @@ const jobs = [
     title: 'HR Executive',
     location: 'Remote / Chandigarh',
     type: 'Full-time / Part-time',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: '6 months to 2 years preferred',
     education: 'MBA / PGDM in HR or related fields',
     description:
@@ -84,7 +84,7 @@ const jobs = [
     title: 'Sales Intern',
     location: 'Remote / Chandigarh',
     type: 'Internship',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: 'Fresher can apply',
     education: 'BBA / MBA / B.Com / BCA freshers are welcome',
     description:
@@ -101,7 +101,7 @@ const jobs = [
     title: 'Social Media Manager (Intern)',
     location: 'Remote',
     type: 'Internship',
-    email: 'ravi@shiwansh.com',
+    email: 'hr@shiwansh.com',
     experience: 'Fresher or 6+ months in digital marketing',
     education: 'BBA / BCA / MBA / Mass Comm / Digital Marketing students welcome',
     description:
@@ -160,7 +160,7 @@ export default function Career() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           We’re shaping the future of tech — and we want you with us. Apply now or send your CV to{' '}
-          <strong>ravi@shiwansh.com</strong>
+          <strong>hr@shiwansh.com</strong>
         </motion.p>
       </div>
 
@@ -226,8 +226,8 @@ export default function Career() {
           transition={{ duration: 0.6 }}
         >
           Prefer to apply directly? Send your CV to{' '}
-          <a href="mailto:ravi@shiwansh.com" className="text-primary fw-semibold text-decoration-underline">
-            ravi@shiwansh.com
+          <a href="mailto:hr@shiwansh.com" className="text-primary fw-semibold text-decoration-underline">
+            hr@shiwansh.com
           </a>{' '}
           or connect with us on{' '}
           <a href="https://www.linkedin.com/company/shiwansh-solutions" target="_blank" rel="noopener noreferrer">

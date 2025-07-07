@@ -283,7 +283,7 @@ function Contact() {
                     <div>
                       <h4 className="h6 mb-1">Email</h4>
                       <p className="text-muted mb-0">
-                        ravi@shiwansh.com
+                        hr@shiwansh.com
                       </p>
                     </div>
                   </div>

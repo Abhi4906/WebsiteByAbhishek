@@ -69,7 +69,7 @@ function Footer() {
                 <li className="d-flex">
                   <i className="bi bi-envelope-fill me-3 text-primary footer-contact-icon"></i>
                   <a href="mailto:contact@shiwanshsolutions.com" className="text-muted text-decoration-none footer-link">
-                    ravi@shiwansh.com
+                    hr@shiwansh.com
                   </a>
                 </li>
               </ul>
