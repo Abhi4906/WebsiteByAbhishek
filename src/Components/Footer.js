@@ -50,7 +50,7 @@ function Footer() {
                 <li className="mb-2"><a href="/about" onClick={() => setActivePage('about')} className="text-muted text-decoration-none footer-link">About Us</a></li>
                 {/* <li className="mb-2"><a href="#" onClick={() => setActivePage('team')} className="text-muted text-decoration-none footer-link">Our Team</a></li> */}
                 <li className="mb-2"><a href="/career" className="text-muted text-decoration-none footer-link">Careers</a></li>
-                {/* <li className="mb-2"><a href="/blogs" className="text-muted text-decoration-none footer-link">Blog</a></li> */}
+                <li className="mb-2"><a href="/blogs" className="text-muted text-decoration-none footer-link">Blog</a></li>
                 <li><a href="/Intership" className="text-muted text-decoration-none footer-link">Intership</a></li>
               </ul>
             </Col>

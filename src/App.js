@@ -1,11 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 
 import Banner from './Components/Banner';
-import Feature from './Components/Feature';
 import Services from './Components/Services';
 import OfferServices from './Components/OfferServices';
 import Contact from './Components/Contact';
@@ -16,52 +14,70 @@ import Intership from './Components/Intership';
 import TeamPage from './TeamPage';
 import InternshipModal from './Components/InternshipModal';
 import ClientFeedback from './Components/ClientFeedback';
-import Blog from './Components/Blog';
-import ReactGA from "react-ga4";
-
-
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import BlogDetail from './Components/BlogDetail';
 import Blogs from './Components/Blogs';
 import Career from './Components/Career';
 import AnalyticsTracker from './Components/AnalyticsTracker';
+import CareerModal from './Components/CareerModal';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactGA from "react-ga4";
+
+// HomePage Component
 function HomePage() {
-
-
-useEffect(() => {
-  ReactGA.initialize("G-JKGYZ5D5M2"); // Your Measurement ID
-}, []);
-
-
-
-
-
   return (
     <>
       <Banner />
-      {/* <Feature /> */}
       <Services />
       <ClientFeedback />
     </>
   );
 }
 
+// Main App Component
 function App() {
   const [showInternshipModal, setShowInternshipModal] = useState(false);
+  const [showCareerModal, setShowCareerModal] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    // Initialize Google Analytics
+    ReactGA.initialize("G-JKGYZ5D5M2");
+  
+    // Show internship modal after 5 seconds
+    const internshipTimer = setTimeout(() => {
       setShowInternshipModal(true);
-    }, 5000); // 5 seconds delay
-
-    return () => clearTimeout(timer);
+      
+      // After internship modal closes, show career modal after 10 seconds
+      const careerTimer = setTimeout(() => {
+        // Only show career modal if internship modal was closed
+        if (!showInternshipModal) {
+          setShowCareerModal(true);
+        }
+      }, 10000);
+      
+      return () => clearTimeout(careerTimer);
+    }, 5000);
+  
+    return () => {
+      clearTimeout(internshipTimer);
+    };
   }, []);
+
+  // Close handler for internship modal that triggers career modal
+  const handleInternshipClose = () => {
+    setShowInternshipModal(false);
+    // Show career modal 10 seconds after closing internship modal
+    setTimeout(() => {
+      setShowCareerModal(true);
+    }, 10000);
+  };
 
   return (
     <div className="app-container">
       <BrowserRouter>
-       <AnalyticsTracker />
+        <AnalyticsTracker />
+        
+        {/* Navbar */}
         <Navbar bg="white" expand="lg" sticky="top" className="shadow-sm py-3 navbar-custom">
           <Container>
             <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
@@ -83,6 +99,7 @@ function App() {
           </Container>
         </Navbar>
 
+        {/* Routes */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<About />} />
@@ -90,20 +107,26 @@ function App() {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/intership" element={<Intership />} />
-          <Route path="/blogs" element={<Blogs />} />
-          <Route path="/blog" element={<Blog />} />
           <Route path="/career" element={<Career />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/analyticstracker" element={<AnalyticsTracker />} />
         </Routes>
 
+        {/* Footer & Consultation */}
         <Freeconsultation />
-        <Footer />
+        <Footer /> {/* Make sure Footer component doesn't have any modal triggers */}
       </BrowserRouter>
 
-      {/* Show Internship Modal after 3s */}
+      {/* Modals */}
       <InternshipModal
         show={showInternshipModal}
-        handleClose={() => setShowInternshipModal(false)}
+        handleClose={handleInternshipClose}
+      />
+      
+      <CareerModal
+        show={showCareerModal}
+        handleClose={() => setShowCareerModal(false)}
       />
     </div>
   );

@@ -680,3 +680,141 @@ body {
 .object-cover {
   object-fit: cover;
 }
+
+
+
+/* CSS Styles */
+.elegant-career-modal .modal-content {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.elegant-container {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0a192f 0%, #172a45 100%);
+}
+
+.floating-circles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(10,25,47,0.8), rgba(10,25,47,0.9));
+}
+
+.content-wrapper {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.headline {
+  font-size: 4rem;
+  font-weight: 800;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.text-accent {
+  color: #64ffda;
+  display: block;
+}
+
+.text-bold {
+  font-weight: 800;
+  display: block;
+  color: white;
+}
+
+.divider {
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(to right, #64ffda, #ffd700);
+  margin: 25px auto;
+}
+
+.subheading {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  margin: 25px 0 40px;
+}
+
+.text-highlight {
+  color: #ffd700;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #64ffda, #0ecff19a);
+  border: none;
+  border-radius: 50px;
+  color: #0a192f;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(100, 255, 219, 0.556);
+}
+
+.arrow-icon {
+  margin-left: 10px;
+  display: inline-block;
+}
