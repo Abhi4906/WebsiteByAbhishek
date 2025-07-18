@@ -91,6 +91,7 @@ function App() {
                 <Nav.Link as={Link} to="/about" className="mx-2 nav-link-custom">About</Nav.Link>
                 <Nav.Link as={Link} to="/intership" className="mx-2 nav-link-custom">Internship</Nav.Link>
                 <Nav.Link as={Link} to="/career" className="mx-2 nav-link-custom">Career</Nav.Link>
+                             <Nav.Link as={Link} to="/blogs" className="mx-2 nav-link-custom">Blogs</Nav.Link>
                 <Nav.Link as={Link} to="/contact" className="mx-2 nav-link-custom">
                   Contact Us <ArrowRightCircle className="ms-1" />
                 </Nav.Link>

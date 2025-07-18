@@ -34,11 +34,11 @@ function CareerModal({ show, handleClose }) {
   );
 
   return (
-    <Modal 
-      show={show} 
-      onHide={handleClose} 
-      size="lg"
-      centered 
+    <Modal
+      show={show}
+      onHide={handleClose}
+      size="M"
+      centered
       backdrop="static"
       className="elegant-career-modal"
     >
@@ -55,7 +55,7 @@ function CareerModal({ show, handleClose }) {
           </motion.button>
 
           {/* Subtle animated background */}
-          <motion.div 
+          <motion.div
             className="animated-bg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -64,7 +64,7 @@ function CareerModal({ show, handleClose }) {
             <FloatingCircles />
             <div className="gradient-overlay"></div>
           </motion.div>
-          
+
           {/* Main content */}
           <div className="content-wrapper">
             <motion.div
@@ -121,16 +121,19 @@ function CareerModal({ show, handleClose }) {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.4, delay: 1 }}
               >
-                <Button 
-                  variant="primary" 
-                  onClick={handleClose}
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    window.open("https://www.shiwansh.com/career", "_blank");
+                    handleClose();
+                  }}
                   className="cta-button"
                 >
-                  EXPLORE OPPORTUNITIES
-                  <motion.span 
+                  Visit Career Page
+                  <motion.span
                     className="arrow-icon"
                     animate={{ x: [0, 5, 0] }}
-                    transition={{ 
+                    transition={{
                       duration: 1.5,
                       repeat: Infinity,
                       repeatDelay: 1
@@ -139,6 +142,7 @@ function CareerModal({ show, handleClose }) {
                     →
                   </motion.span>
                 </Button>
+
               </motion.div>
             </motion.div>
           </div>
