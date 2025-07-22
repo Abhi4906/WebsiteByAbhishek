@@ -98,11 +98,11 @@ const jobs = [
 
 
     {
-    title: 'Software Developer',
+    title: 'Senior Software Developer',
     location: 'Remote',
     type: 'Full-time',
     email: 'hr@shiwansh.com',
-    experience: '4+ years required',
+    experience: '5+ years required',
     education: 'B.Tech / MCA / M.Tech in Computer Science or related field',
     description:
       'We are hiring skilled developers to build production-grade web apps and APIs using modern technologies.',
