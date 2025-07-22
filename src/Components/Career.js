@@ -5,47 +5,28 @@ import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const jobs = [
-  {
-    title: 'Full Stack Intern',
-    location: 'Remote / Chandigarh',
-    type: 'Internship',
-    email: 'hr@shiwansh.com',
-    experience: 'Fresher can apply',
-    education: 'BCA / B.Tech / MCA students or recent graduates preferred',
-    description:
-      'Join our dev team to build scalable web applications and APIs. Ideal for freshers and students looking to kickstart their career in tech.',
-    responsibilities: [
-      'Assist in frontend and backend development tasks',
-      'Work with React and Node.js under mentorship',
-      'Participate in code reviews and sprint meetings',
-    ],
-    skills: ['React.js', 'Node.js', 'MongoDB', 'Git', 'REST APIs'],
-    requiredSkills: ['Basic programming knowledge', 'Team collaboration', 'Good communication skills', 'Basic software knowledge is a plus'],
-  },
-  {
-    title: 'Software Developer',
-    location: 'Remote',
-    type: 'Full-time',
-    email: 'hr@shiwansh.com',
-    experience: '4+ years required',
-    education: 'B.Tech / MCA / M.Tech in Computer Science or related field',
-    description:
-      'We are hiring skilled developers to build production-grade web apps and APIs using modern technologies.',
-    responsibilities: [
-      'Design and implement backend APIs and services',
-      'Build and optimize frontend components',
-      'Write scalable and secure code following best practices',
-    ],
-    skills: [
-      'MERN Stack', 'MySQL', 'Git', 'AWS', 'Docker',
-      'CI/CD Pipelines', 'REST APIs', 'GraphQL',
-      'Unit Testing', 'Agile Methodology', 'Linux/Unix', 'Serverless Functions'
-    ],
-    requiredSkills: [
-      'Clean coding', 'Database design', 'Problem-solving',
-      'Good communication skills', 'Basic software knowledge is a plus'
-    ],
-  },
+
+
+  // {
+  //   title: 'Full Stack Intern',
+  //   location: 'Remote / Chandigarh',
+  //   type: 'Internship',
+  //   email: 'hr@shiwansh.com',
+  //   experience: 'Fresher can apply',
+  //   education: 'BCA / B.Tech / MCA students or recent graduates preferred',
+  //   description:
+  //     'Join our dev team to build scalable web applications and APIs. Ideal for freshers and students looking to kickstart their career in tech.',
+  //   responsibilities: [
+  //     'Assist in frontend and backend development tasks',
+  //     'Work with React and Node.js under mentorship',
+  //     'Participate in code reviews and sprint meetings',
+  //   ],
+  //   skills: ['React.js', 'Node.js', 'MongoDB', 'Git', 'REST APIs'],
+  //   requiredSkills: ['Basic programming knowledge', 'Team collaboration', 'Good communication skills', 'Basic software knowledge is a plus'],
+  // },
+
+
+
   {
     title: 'Sales Executive',
     location: 'Remote / Chandigarh',
@@ -63,12 +44,29 @@ const jobs = [
     skills: ['Lead Generation', 'CRM Tools', 'Client Communication', 'Negotiation'],
     requiredSkills: ['Confidence', 'Basic marketing knowledge', 'Sales strategy', 'Good communication skills', 'Basic software knowledge is a plus'],
   },
+    {
+    title: 'Social Media Manager (Intern)',
+    location: 'Remote',
+    type: 'Internship',
+    email: 'hr@shiwansh.com',
+    experience: 'Fresher or 6+ months in digital marketing',
+    education: 'BBA / BCA / MBA / Mass Comm / Digital Marketing students welcome',
+    description:
+      'Help us build brand visibility through engaging content and digital outreach. Great learning ground for future digital marketers.',
+    responsibilities: [
+      'Plan and create content calendars',
+      'Schedule posts and analyze metrics',
+      'Support social campaigns and outreach',
+    ],
+    skills: ['SEO Basics', 'Canva', 'Instagram Marketing', 'Google Analytics'],
+    requiredSkills: ['Creativity', 'Consistency', 'Good writing skills', 'Good communication skills', 'Basic software knowledge is a plus'],
+  },
   {
-    title: 'HR Executive',
+    title: 'HR Intern',
     location: 'Remote / Chandigarh',
     type: 'Full-time / Part-time',
     email: 'hr@shiwansh.com',
-    experience: '6 months to 2 years preferred',
+    experience: '0 months to 1 years preferred',
     education: 'MBA / PGDM in HR or related fields',
     description:
       'We’re hiring an HR executive to manage recruitment, employee engagement, and general coordination.',
@@ -97,22 +95,31 @@ const jobs = [
     skills: ['Excel', 'CRM Tools', 'Follow-ups', 'Communication'],
     requiredSkills: ['Basic computer skills', 'Curiosity', 'Consistency', 'Good communication skills', 'Basic software knowledge is a plus'],
   },
-  {
-    title: 'Social Media Manager (Intern)',
+
+
+    {
+    title: 'Software Developer',
     location: 'Remote',
-    type: 'Internship',
+    type: 'Full-time',
     email: 'hr@shiwansh.com',
-    experience: 'Fresher or 6+ months in digital marketing',
-    education: 'BBA / BCA / MBA / Mass Comm / Digital Marketing students welcome',
+    experience: '4+ years required',
+    education: 'B.Tech / MCA / M.Tech in Computer Science or related field',
     description:
-      'Help us build brand visibility through engaging content and digital outreach. Great learning ground for future digital marketers.',
+      'We are hiring skilled developers to build production-grade web apps and APIs using modern technologies.',
     responsibilities: [
-      'Plan and create content calendars',
-      'Schedule posts and analyze metrics',
-      'Support social campaigns and outreach',
+      'Design and implement backend APIs and services',
+      'Build and optimize frontend components',
+      'Write scalable and secure code following best practices',
     ],
-    skills: ['SEO Basics', 'Canva', 'Instagram Marketing', 'Google Analytics'],
-    requiredSkills: ['Creativity', 'Consistency', 'Good writing skills', 'Good communication skills', 'Basic software knowledge is a plus'],
+    skills: [
+      'MERN Stack', 'MySQL', 'Git', 'AWS', 'Docker',
+      'CI/CD Pipelines', 'REST APIs', 'GraphQL',
+      'Unit Testing', 'Agile Methodology', 'Linux/Unix', 'Serverless Functions'
+    ],
+    requiredSkills: [
+      'Clean coding', 'Database design', 'Problem-solving',
+      'Good communication skills', 'Basic software knowledge is a plus'
+    ],
   },
 ];
 
