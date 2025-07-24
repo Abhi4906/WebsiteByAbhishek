@@ -493,9 +493,10 @@ export default function Career() {
               </motion.div>
             ))}
           </div>
+
         </div>
 
-        {/* Footer CTA */}
+        {/* Footer cta */}
         <div className="container text-center mb-5">
           <motion.p className="text-secondary" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
             Prefer to apply directly? Send your CV to{' '}
